@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TimerButton.css'
 
 export default class TimerButton extends Component {
     constructor(props) {

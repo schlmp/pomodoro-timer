@@ -1,0 +1,26 @@
+.PomodoroApp {
+    height: 100%;
+    background-image: url('./img/tomato.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 150%;
+    background-size: auto 110%;
+}
+
+.Timer {
+    height: 60%;
+    color: white;
+    font-size: 25vmin;
+    font-weight: bolder;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+}
+
+.Controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+}

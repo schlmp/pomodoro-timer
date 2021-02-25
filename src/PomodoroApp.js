@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TimerButton from './TimerButton';
+import './PomodoroApp.css'
 
 class PomodoroApp extends Component {
     constructor(props) {
@@ -67,11 +68,13 @@ class PomodoroApp extends Component {
         const isPlaying = this.state.play;
         return (
             <div className="PomodoroApp">
-                {this.formatTime(this.state.seconds)}
-                <TimerButton text={isPlaying ? "Pause" : "Play"} handleClick={this.playPause}/>
-                <TimerButton text="25 Min." handleClick={this.setPomodoroInterval}/>
-                <TimerButton text="5 Min." handleClick={this.setShortBreakInterval}/>
-                <TimerButton text="20 Min." handleClick={this.setLongBreakInterval}/>
+                <div className="Timer"><div>{this.formatTime(this.state.seconds)}</div></div>
+                <div className="Controls">
+                    <TimerButton text={isPlaying ? "Pause" : "Play"} handleClick={this.playPause}/>
+                    <TimerButton text="25 Min." handleClick={this.setPomodoroInterval}/>
+                    <TimerButton text="5 Min." handleClick={this.setShortBreakInterval}/>
+                    <TimerButton text="20 Min." handleClick={this.setLongBreakInterval}/>
+                </div>
             </div>
         );
     }
