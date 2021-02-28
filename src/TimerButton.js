@@ -14,7 +14,7 @@ export default class TimerButton extends Component {
     
     render() {
         return (
-            <button className="TimerButton" onClick={this.handleClick}>
+            <button disabled={this.props.disabled} className="TimerButton" onClick={this.handleClick}>
                 {this.props.text}
             </button>
         )

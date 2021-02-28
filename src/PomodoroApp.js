@@ -65,12 +65,13 @@ class PomodoroApp extends Component {
     }
     
     render() {
+        const seconds = this.state.seconds;
         const isPlaying = this.state.play;
         return (
             <div className="PomodoroApp">
-                <div className="Timer"><div>{this.formatTime(this.state.seconds)}</div></div>
+                <div className="Timer"><div>{this.formatTime(seconds)}</div></div>
                 <div className="Controls">
-                    <TimerButton text={isPlaying ? "Pause" : "Play"} handleClick={this.playPause}/>
+                    <TimerButton disabled={seconds <= 0} text={isPlaying ? "Pause" : "Play"} handleClick={this.playPause}/>
                     <TimerButton text="25 Min." handleClick={this.setPomodoroInterval}/>
                     <TimerButton text="5 Min." handleClick={this.setShortBreakInterval}/>
                     <TimerButton text="20 Min." handleClick={this.setLongBreakInterval}/>
