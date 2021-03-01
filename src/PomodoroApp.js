@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TimerButton from './TimerButton';
 import './PomodoroApp.css'
+import bell from './audio/bell.mp3';
 
 class PomodoroApp extends Component {
     constructor(props) {
@@ -20,6 +21,8 @@ class PomodoroApp extends Component {
         this.setState(state => ({
             seconds: sec
         }));
+        this.sound.pause();
+        this.sound.currentTime = 0;
     }
 
     playPause() {
@@ -44,7 +47,7 @@ class PomodoroApp extends Component {
             this.setState(state => ({
                 play: false
             }));
-            alert("Timer finished.");
+            this.sound.play();
         }
     }
 
@@ -58,6 +61,7 @@ class PomodoroApp extends Component {
 
     componentDidMount() {
         this.interval = setInterval(() => this.tick(), 1000);
+        this.sound = new Audio(bell);
     }
 
     componentWillUnmount() {
