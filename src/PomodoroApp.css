@@ -13,9 +13,16 @@
     font-weight: bolder;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
-    align-content: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.IntervalName {
+    font-size: 0.6em;
+}
+
+.Timestamp {
+    height: 55%;
 }
 
 .Controls {

@@ -8,22 +8,25 @@ class PomodoroApp extends Component {
         super(props);
         this.state = {
             seconds: 25*60,
+            intervalName: "Work",
             play: true
         };
 
-        this.setPomodoroInterval = this.setSeconds.bind(this, 25*60);
-        this.setShortBreakInterval = this.setSeconds.bind(this, 5*60);
-        this.setLongBreakInterval = this.setSeconds.bind(this, 20*60);
+        this.setWorkInterval = this.setInterval.bind(this, {name: "Work", sec:25*60});
+        this.setShortBreakInterval = this.setInterval.bind(this, {name: "Short Break", sec:5*60});
+        this.setLongBreakInterval = this.setInterval.bind(this, {name: "Long Break", sec:20*60});
         this.playPause = this.playPause.bind(this);
     }
 
-    setSeconds(sec) {
+    setInterval(interval) {
         this.setState(state => ({
-            seconds: sec
+            seconds: interval.sec,
+            intervalName: interval.name
         }));
         this.sound.pause();
         this.sound.currentTime = 0;
     }
+
 
     playPause() {
         if(this.state.play) {
@@ -40,7 +43,7 @@ class PomodoroApp extends Component {
     }
 
     tick() {
-        this.setSeconds(this.state.seconds -1);
+        this.setState(state => ({seconds: this.state.seconds-1}))
 
         if (this.state.seconds <= 0) {
             clearInterval(this.interval);
@@ -71,16 +74,20 @@ class PomodoroApp extends Component {
     render() {
         const seconds = this.state.seconds;
         const isPlaying = this.state.play;
+        const intervalName = this.state.intervalName;
         const timestamp = this.formatTime(seconds)
 
         document.title = timestamp + " Pomodoro";
 
         return (
             <div className="PomodoroApp">
-                <div className="Timer"><div>{timestamp}</div></div>
+                <div className="Timer">
+                    <div className="IntervalName">{intervalName}</div>
+                    <div className="Timestamp">{timestamp}</div>
+                </div>
                 <div className="Controls">
                     <TimerButton disabled={seconds <= 0} text={isPlaying ? "Pause" : "Play"} handleClick={this.playPause}/>
-                    <TimerButton text="25 Min." handleClick={this.setPomodoroInterval}/>
+                    <TimerButton text="25 Min." handleClick={this.setWorkInterval}/>
                     <TimerButton text="5 Min." handleClick={this.setShortBreakInterval}/>
                     <TimerButton text="20 Min." handleClick={this.setLongBreakInterval}/>
                 </div>
