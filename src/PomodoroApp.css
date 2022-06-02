@@ -11,6 +11,7 @@
     color: white;
     font-size: 25vmin;
     font-weight: bolder;
+    font-variant-numeric: tabular-nums;
     text-align: center;
     display: flex;
     flex-direction: column;
