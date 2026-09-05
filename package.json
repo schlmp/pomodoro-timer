@@ -1,44 +1,30 @@
 {
-  "name": "pomodoro-timer",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://schlmp.github.io/pomodoro-timer",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "web-vitals": "^1.1.2"
-  },
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.2.3",
-    "react-scripts": "4.0.3"
-  }
+	"name": "pomodoro-timer",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^7.0.1",
+		"@sveltejs/kit": "^2.63.0",
+		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@tailwindcss/vite": "^4.3.0",
+		"prettier": "^3.8.3",
+		"prettier-plugin-svelte": "^4.1.0",
+		"prettier-plugin-tailwindcss": "^0.8.0",
+		"svelte": "^5.56.1",
+		"svelte-check": "^4.6.0",
+		"tailwindcss": "^4.3.0",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.16"
+	}
 }
