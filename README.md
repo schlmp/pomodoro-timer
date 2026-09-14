@@ -1,14 +1,18 @@
 # Pomodoro-Timer
 
-<center><img src="public/logo192.png" alt="tomato" title="tomato" width=64px height=64px /></center>
+<img src="src/lib/assets/tomato.svg" alt="tomato" title="tomato" width=64px height=64px />
 
-This is a pomodoro timer built with React.
+This is a pomodoro timer built with Svelte.
 
 ## Run locally
 
 ```sh
-npm install
-npm start
+bun install
+bun run dev
 ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Build
+
+```sh
+bun run build
+```
