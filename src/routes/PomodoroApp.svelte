@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import bell from '$lib/assets/bell.mp3';
 	import TimerButton from './TimerButton.svelte';
 
@@ -14,6 +14,10 @@
 	onMount(() => {
 		sound = new Audio(bell);
 		interval = setInterval(tick, 1000);
+	});
+
+	onDestroy(() => {
+		clearInterval(interval);
 	});
 
 	function playPause() {
